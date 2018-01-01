@@ -30,5 +30,10 @@ public class playCommand extends Command {
                 }
                 return;
             }
+        if (args.length == 2) {
+            for (SocketIOClient client : PrisonRadio.getInstance().sb.server.getAllClients()) {
+            client.sendEvent("playaudio", args[1]);
+            }
+        }
     }
 }
