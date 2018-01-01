@@ -49,6 +49,8 @@ public class socketbot {
         server.addEventListener("playing", String.class, new DataListener<String>() {
             @Override
             public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) throws Exception {
+                PrisonRadio.getInstance().getServer().broadcastMessage("Event called");
+                PrisonRadio.getInstance().getServer().broadcastMessage("Someone is playing: "+s);
                 UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
                 if(mcuuid == null){
                     return;
