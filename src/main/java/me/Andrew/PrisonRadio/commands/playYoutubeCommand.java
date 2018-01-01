@@ -9,10 +9,10 @@ import org.bukkit.entity.Player;
 /**
  * Created by Andrew on 01/01/2018.
  */
-public class playCommand extends Command {
+public class playYoutubeCommand extends Command {
 
-    public playCommand() {
-        this.cmd="play";
+    public playYoutubeCommand() {
+        this.cmd="youtube";
     }
 
     public void execute(CommandSender sender, String[] args) {
@@ -25,7 +25,7 @@ public class playCommand extends Command {
                 }
                 if (args.length == 1) {
                     //for (SocketIOClient client2 : sb.server.getAllClients()) {
-                    client.sendEvent("playaudio", args[1]);
+                    client.sendEvent("playyt", args[1]);
                     //}
                 }
                 return;

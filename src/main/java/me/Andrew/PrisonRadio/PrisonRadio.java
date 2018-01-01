@@ -2,6 +2,7 @@ package me.Andrew.PrisonRadio;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import me.Andrew.PrisonRadio.commands.playCommand;
+import me.Andrew.PrisonRadio.commands.playYoutubeCommand;
 import me.Andrew.PrisonRadio.events.JoinEvent;
 import me.Andrew.PrisonRadio.events.LeaveEvent;
 import me.Andrew.PrisonRadio.socketio.socketbot;
@@ -36,7 +37,8 @@ public class PrisonRadio extends JavaPlugin {
         new playCommand(),
         new oofCommand() */
         Command[] commands = new Command[] {
-                new playCommand()
+                new playCommand(),
+                new playYoutubeCommand()
         };
         APIBuilder builder = new APIBuilder(this);
         builder.setCommandClasses(commands);
