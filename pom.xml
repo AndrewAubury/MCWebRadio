@@ -41,14 +41,6 @@
                         <configuration>
                             <minimizeJar>false</minimizeJar>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                                <filters>
-                                    <filter>
-                                        <artifact>*:*</artifact>
-                                        <includes>
-                                            <include>me/piggypiglet/**</include>
-                                        </includes>
-                                    </filter>
-                                </filters>
                         </configuration>
                     </execution>
                 </executions>
@@ -72,6 +64,7 @@
             <groupId>me.piggypiglet</groupId>
             <artifactId>pigapi</artifactId>
             <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <repositories>
