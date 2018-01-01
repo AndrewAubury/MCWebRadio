@@ -1,0 +1,7 @@
+name: PrisonRadio
+main: me.Andrew.PrisonRadio.PrisonRadio
+version: 1.0
+description: Custom Radio System
+author: AndrewAubury
+commands:
+  prisonradio:
