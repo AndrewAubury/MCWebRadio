@@ -45,6 +45,19 @@ public class socketbot {
                 }
             }
         });
+
+        server.addEventListener("playing", String.class, new DataListener<String>() {
+            @Override
+            public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) throws Exception {
+                UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
+                if(mcuuid == null){
+                    return;
+                }
+                PrisonRadio.getInstance().getServer().getPlayer(mcuuid).sendMessage("Now playing: "+s);
+            }
+        });
+
+        //server.addEventListener();
     }
 
 
