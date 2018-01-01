@@ -23,7 +23,7 @@ public class playCommand extends Command {
                     p.sendMessage("your not on the link");
                     return;
                 }
-                if (args.length == 1) {
+                if (args.length == 2) {
                     //for (SocketIOClient client2 : sb.server.getAllClients()) {
                     client.sendEvent("playaudio", args[1]);
                     //}
