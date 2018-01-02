@@ -40,9 +40,13 @@ public class socketbot {
                     }
                 }
                 if(match == null){
-
                     client.sendEvent("bad","There is no minecraft account logged in on the same ip as you");
+                    client.disconnect();
                 }else{
+                    SocketIOClient cur = getClient(match);
+                    if(cur != null){
+                        cur.sendEvent("bad","You have logged in from another location");
+                    }
                     client.set("mcuuid",match.getUniqueId());
                     client.joinRoom("loggedin");
                     client.sendEvent("good", "You could be: "+match.getName());
@@ -65,29 +69,31 @@ public class socketbot {
 
     public void login(Player p){
         for(SocketIOClient client : server.getAllClients()){
-            if(!client.getAllRooms().contains("loggedin")){
-                InetSocketAddress socketAddress = (InetSocketAddress) client.getRemoteAddress();
-                InetAddress inetAddress = socketAddress.getAddress();
+            if(client.isChannelOpen()) {
+                if (!client.getAllRooms().contains("loggedin")) {
+                    InetSocketAddress socketAddress = (InetSocketAddress) client.getRemoteAddress();
+                    InetAddress inetAddress = socketAddress.getAddress();
 
-                if(p.getAddress().getAddress().getHostAddress().equalsIgnoreCase(inetAddress.getHostAddress())){
-                    client.sendEvent("good","You are now logged in on the server as: "+p.getName());
-                    client.set("mcuuid",p.getUniqueId());
-                    client.joinRoom("loggedin");
+                    if (p.getAddress().getAddress().getHostAddress().equalsIgnoreCase(inetAddress.getHostAddress())) {
+                        client.sendEvent("good", "You are now logged in on the server as: " + p.getName());
+                        client.set("mcuuid", p.getUniqueId());
+                        client.joinRoom("loggedin");
+                    }
                 }
             }
-
         }
     }
 
     public SocketIOClient getClient(Player p){
         for(SocketIOClient client : server.getAllClients()){
-            if(client.getAllRooms().contains("loggedin")){
-                UUID cuuid = (UUID) client.get("mcuuid");
-                if(cuuid != null && cuuid.equals(p.getUniqueId())){
-                    return client;
+            if(client.isChannelOpen()) {
+                if (client.getAllRooms().contains("loggedin")) {
+                    UUID cuuid = (UUID) client.get("mcuuid");
+                    if (cuuid != null && cuuid.equals(p.getUniqueId())) {
+                        return client;
+                    }
                 }
             }
-
         }
         return null;
     }
