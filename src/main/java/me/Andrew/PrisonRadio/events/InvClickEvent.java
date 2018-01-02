@@ -25,13 +25,14 @@ public class InvClickEvent implements Listener {
            Player  p = (Player) e.getWhoClicked();
            ItemStack clicked = e.getCurrentItem();
             Selector s = Selector.getInstance();
-
+            e.setCancelled(true);
             if(clicked.getItemMeta() == null) return;
             if(clicked.getItemMeta().getDisplayName() == null) return;
 
             String link = s.getLink(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()));
             p.sendMessage(ChatColor.GOLD+"Requesting server to play: "+ clicked.getItemMeta().getDisplayName());
             PrisonRadio.getInstance().sb.getClient(p).sendEvent("playaudio", link);
+
         }else{
             return;
         }

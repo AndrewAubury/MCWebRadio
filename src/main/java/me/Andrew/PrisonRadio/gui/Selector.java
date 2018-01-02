@@ -72,12 +72,14 @@ public class Selector {
 
             ArrayList<String> lore = new ArrayList<>();
 
-            lore.add(ChatColor.DARK_GREEN + "Duration: "+ChatColor.GREEN+"formatted_time");
+            lore.add(ChatColor.DARK_GREEN + "Duration: "+ChatColor.GREEN+object.getString("formatted_time"));
 
             im.setDisplayName(name);
             im.setLore(lore);
             is.setItemMeta(im);
             inv.addItem(is);
+
+            addLink(object.getString("title"),object.getString("path"));
         }
     }
     private int getInventorySize(int max) {
