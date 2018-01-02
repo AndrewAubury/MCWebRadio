@@ -2,14 +2,14 @@ package me.Andrew.PrisonRadio.commands;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import me.Andrew.PrisonRadio.PrisonRadio;
-import me.piggypiglet.pigapi.objects.Command;
+import me.piggypiglet.pigapi.objects.CMD;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
  * Created by Andrew on 01/01/2018.
  */
-public class playCommand extends Command {
+public class playCommand extends CMD {
 
     public playCommand() {
         this.cmd="play";

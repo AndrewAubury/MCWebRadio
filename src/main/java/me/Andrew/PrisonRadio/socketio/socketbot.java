@@ -7,6 +7,8 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 import me.Andrew.PrisonRadio.PrisonRadio;
+import me.Andrew.PrisonRadio.socketio.events.playingEvent;
+import me.Andrew.PrisonRadio.socketio.events.stopEvent;
 import me.piggypiglet.pigapi.handlers.ChatHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -48,37 +50,8 @@ public class socketbot {
             }
         });
 
-        server.addEventListener("playing", String.class, new DataListener<String>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) throws Exception {
-                //PrisonRadio.getInstance().getServer().broadcastMessage("Event called");
-                //PrisonRadio.getInstance().getServer().broadcastMessage("Someone is playing: "+s);
-                UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
-                if(mcuuid == null){
-                    return;
-                }
-                String msg = "&aNow playing: &2"+s;
-                msg = ChatColor.translateAlternateColorCodes('&',msg);
-                PrisonRadio.getInstance().getServer().getPlayer(mcuuid).sendMessage(msg);
-            }
-        });
-
-        server.addEventListener("ended", String.class, new DataListener<String>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) throws Exception {
-                //PrisonRadio.getInstance().getServer().broadcastMessage("Event called");
-                //PrisonRadio.getInstance().getServer().broadcastMessage("Someone is playing: "+s);
-                UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
-                if(mcuuid == null){
-                    return;
-                }
-                String msg = "&cSong Ended";
-                msg = ChatColor.translateAlternateColorCodes('&',msg);
-                PrisonRadio.getInstance().getServer().getPlayer(mcuuid).sendMessage(msg);
-            }
-        });
-
-        //server.addEventListener();
+        server.addEventListener("playing", String.class, new playingEvent());
+        server.addEventListener("ended",String.class,new stopEvent());
     }
 
 

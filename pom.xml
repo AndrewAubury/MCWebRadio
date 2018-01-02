@@ -48,25 +48,6 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.corundumstudio.socketio</groupId>
-            <artifactId>netty-socketio</artifactId>
-            <version>1.7.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>me.piggypiglet</groupId>
-            <artifactId>pigapi</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
     <repositories>
         <repository>
             <id>spigot-repo</id>
@@ -77,4 +58,31 @@
             <url>http://199.255.159.82:5959/repository/maven-releases/</url>
         </repository>
     </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.corundumstudio.socketio</groupId>
+            <artifactId>netty-socketio</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20171018</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.piggypiglet</groupId>
+            <artifactId>pigapi</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>
