@@ -80,6 +80,7 @@ public class PrisonRadio extends JavaPlugin {
         sProgressTag.setScore(7);
         sProgress.setScore(6);
 
+        o.setDisplaySlot(DisplaySlot.SIDEBAR);
         p.setScoreboard(b);
         return b;
     }
