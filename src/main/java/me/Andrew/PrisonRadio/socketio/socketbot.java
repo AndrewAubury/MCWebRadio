@@ -7,6 +7,7 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 import me.Andrew.PrisonRadio.PrisonRadio;
+import me.Andrew.PrisonRadio.socketio.events.playSecondEvent;
 import me.Andrew.PrisonRadio.socketio.events.playingEvent;
 import me.Andrew.PrisonRadio.socketio.events.stopEvent;
 import me.piggypiglet.pigapi.handlers.ChatHandler;
@@ -56,6 +57,7 @@ public class socketbot {
 
         server.addEventListener("playing", String.class, new playingEvent());
         server.addEventListener("ended",String.class,new stopEvent());
+        server.addEventListener("songtime",String.class,new playSecondEvent());
     }
 
 
