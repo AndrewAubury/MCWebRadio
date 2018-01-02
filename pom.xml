@@ -84,5 +84,11 @@
             <version>1.1.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.connorlinfoot</groupId>
+            <artifactId>ActionBarAPI</artifactId>
+            <version>1.5.3</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

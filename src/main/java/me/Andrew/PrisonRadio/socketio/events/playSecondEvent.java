@@ -23,7 +23,7 @@ public class playSecondEvent implements DataListener<String> {
             JSONObject jsonObject = new JSONObject(s);
 
             PrisonRadio main = PrisonRadio.getInstance();
-            main.getLogger().info(s);
+            //main.getLogger().info(s);
             Player p = main.getServer().getPlayer(mcuuid);
             main.setMusicScore(p,jsonObject.getString("name"),jsonObject.getString("time"));
         }

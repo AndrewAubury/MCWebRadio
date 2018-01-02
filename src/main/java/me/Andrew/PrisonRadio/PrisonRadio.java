@@ -1,5 +1,6 @@
 package me.Andrew.PrisonRadio;
 
+import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import me.Andrew.PrisonRadio.commands.listCommand;
 import me.Andrew.PrisonRadio.commands.playCommand;
 import me.Andrew.PrisonRadio.commands.playYoutubeCommand;
@@ -62,32 +63,16 @@ public class PrisonRadio extends JavaPlugin {
     }
 
 
-    public Scoreboard setMusicScore(Player p, String song, String progress){
-        Scoreboard b = getServer().getScoreboardManager().getNewScoreboard();
-        Objective o = b.registerNewObjective("Music","dummy");
-        o.setDisplayName(ChatColor.GREEN+"Music");
+    public void setMusicScore(Player p, String song, String progress){
+        String p1 = ChatColor.GREEN+"Playing: ";
+        String p2 = ChatColor.DARK_GREEN+song;
+        String p3 = ChatColor.GREEN+"Progress: ";
+        String p4 = ChatColor.DARK_GREEN+progress;
+        ActionBarAPI.sendActionBar(p,p1+p2+ChatColor.GOLD+"  |  "+p3+p4);
 
-        Score sNameTag = o.getScore(getServer().getOfflinePlayer(ChatColor.GREEN+"Playing: "));
-        Score sName = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+song));
-
-        Score sPlaceholder = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+"  "));
-
-        Score sProgressTag = o.getScore(getServer().getOfflinePlayer(ChatColor.GREEN+"Progress: "));
-        Score sProgress = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+progress));
-
-        sNameTag.setScore(10);
-        sName.setScore(9);
-        sPlaceholder.setScore(8);
-        sProgressTag.setScore(7);
-        sProgress.setScore(6);
-
-        o.setDisplaySlot(DisplaySlot.SIDEBAR);
-
-        p.setScoreboard(b);
-        return b;
     }
     public void resetScoreBoard(Player p){
-        p.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
+        ActionBarAPI.sendActionBar(p,"");
     }
 
 }
