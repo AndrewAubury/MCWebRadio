@@ -66,13 +66,14 @@ public class PrisonRadio extends JavaPlugin {
         Scoreboard b = getServer().getScoreboardManager().getNewScoreboard();
         Objective o = b.registerNewObjective("Music","dummy");
         o.setDisplayName(ChatColor.GREEN+"Music");
-        Score sNameTag = o.getScore(ChatColor.GREEN+"Playing: ");
-        Score sName = o.getScore(ChatColor.DARK_GREEN+song);
 
-        Score sPlaceholder = o.getScore(ChatColor.DARK_GREEN+"  ");
+        Score sNameTag = o.getScore(getServer().getOfflinePlayer(ChatColor.GREEN+"Playing: "));
+        Score sName = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+song));
 
-        Score sProgressTag = o.getScore(ChatColor.GREEN+"Progress: ");
-        Score sProgress = o.getScore(ChatColor.DARK_GREEN+progress);
+        Score sPlaceholder = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+"  "));
+
+        Score sProgressTag = o.getScore(getServer().getOfflinePlayer(ChatColor.GREEN+"Progress: "));
+        Score sProgress = o.getScore(getServer().getOfflinePlayer(ChatColor.DARK_GREEN+progress));
 
         sNameTag.setScore(10);
         sName.setScore(9);
@@ -81,6 +82,7 @@ public class PrisonRadio extends JavaPlugin {
         sProgress.setScore(6);
 
         o.setDisplaySlot(DisplaySlot.SIDEBAR);
+
         p.setScoreboard(b);
         return b;
     }
