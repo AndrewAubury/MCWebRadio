@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 public class controlsEvent implements DataListener<String> {
         @Override
-        public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) throws Exception {
+        public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) {
             UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
             if (mcuuid == null) {
                 return;
@@ -25,8 +25,8 @@ public class controlsEvent implements DataListener<String> {
 
             PrisonRadio main = PrisonRadio.getInstance();
             //main.getLogger().info(s);
-            main.getLogger().info("Hiiiiii");
-            main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getBoolean("paused"));
+            //main.getLogger().info("Hiiiiii");
+            main.getLogger().info(jsonObject.get("song")+" | "+jsonObject.get("paused"));
 
             Player p = main.getServer().getPlayer(mcuuid);
 
