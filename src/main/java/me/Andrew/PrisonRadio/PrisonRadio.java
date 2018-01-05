@@ -1,6 +1,7 @@
 package me.Andrew.PrisonRadio;
 
 import com.connorlinfoot.actionbarapi.ActionBarAPI;
+import me.Andrew.PrisonRadio.commands.controlsCommand;
 import me.Andrew.PrisonRadio.commands.listCommand;
 import me.Andrew.PrisonRadio.commands.playCommand;
 import me.Andrew.PrisonRadio.commands.playYoutubeCommand;
@@ -46,7 +47,8 @@ public class PrisonRadio extends JavaPlugin {
         CMD[] commands = new CMD[] {
                 new playCommand(),
                 new playYoutubeCommand(),
-                new listCommand()
+                new listCommand(),
+                new controlsCommand()
         };
 
         new Selector();

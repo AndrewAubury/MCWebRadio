@@ -23,7 +23,7 @@ public class controlsEvent implements DataListener<String> {
             JSONObject data = new JSONObject(s);
 
             PrisonRadio main = PrisonRadio.getInstance();
-            //main.getLogger().info(s);
+            main.getLogger().info(s);
             Player p = main.getServer().getPlayer(mcuuid);
             ContolGUI gui = new ContolGUI();
 
