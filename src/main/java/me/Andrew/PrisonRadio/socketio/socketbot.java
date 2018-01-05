@@ -47,6 +47,7 @@ public class socketbot {
                     SocketIOClient cur = getClient(match);
                     if(cur != null){
                         cur.sendEvent("bad","You have logged in from another location");
+                        cur.disconnect();
                     }
                     client.set("mcuuid",match.getUniqueId());
                     client.joinRoom("loggedin");
@@ -58,6 +59,7 @@ public class socketbot {
         server.addEventListener("playing", String.class, new playingEvent());
         server.addEventListener("ended",String.class,new stopEvent());
         server.addEventListener("songtime",String.class,new playSecondEvent());
+        server.addEventListener("controls",String.class,new playSecondEvent());
     }
 
 
