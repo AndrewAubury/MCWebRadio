@@ -54,7 +54,7 @@ public class ControlGUI {
     private int getSlot(int row, int col){
         int slot = 0;
         row = row - 1;
-        slot = col * 9;
+        slot = row * 9;
         col = col - 1;
         slot = slot + col;
         return slot;
