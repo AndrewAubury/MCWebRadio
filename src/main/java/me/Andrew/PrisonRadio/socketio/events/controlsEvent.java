@@ -24,7 +24,7 @@ public class controlsEvent implements DataListener<String> {
             JSONObject jsonObject = new JSONObject(s);
 
             PrisonRadio main = PrisonRadio.getInstance();
-            //main.getLogger().info(s);
+            main.getLogger().info(s);
             //main.getLogger().info("Hiiiiii");
             main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
