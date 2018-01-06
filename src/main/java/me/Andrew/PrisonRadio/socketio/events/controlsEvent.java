@@ -15,16 +15,15 @@ import java.util.UUID;
  * Created by Andrew on 02/01/2018.
  */
 public class controlsEvent implements DataListener<String> {
-        @Override
-        public void onData(SocketIOClient socketIOClient, String s, AckRequest ackRequest) {
+        public void onData(SocketIOClient socketIOClient, String string, AckRequest ackRequest) {
             UUID mcuuid = (UUID) socketIOClient.get("mcuuid");
             if (mcuuid == null) {
                 return;
             }
-            JSONObject jsonObject = new JSONObject(s);
+            JSONObject jsonObject = new JSONObject(string);
 
             PrisonRadio main = PrisonRadio.getInstance();
-            main.getLogger().info(s);
+            main.getLogger().info(string);
             //main.getLogger().info("Hiiiiii");
             main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
@@ -33,6 +32,6 @@ public class controlsEvent implements DataListener<String> {
             main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
             p.sendMessage(ChatColor.GREEN+"Opening Controls GUI");
-            p.openInventory(ControlGUI.getInv(jsonObject.getString("song"),jsonObject.getString("paused").equalsIgnoreCase("true")));
+            //p.openInventory(ControlGUI.getInv(jsonObject.getString("song"),jsonObject.getString("paused").equalsIgnoreCase("true")));
         }
 }

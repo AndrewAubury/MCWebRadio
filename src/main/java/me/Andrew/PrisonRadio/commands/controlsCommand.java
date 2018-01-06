@@ -2,6 +2,7 @@ package me.Andrew.PrisonRadio.commands;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import me.Andrew.PrisonRadio.PrisonRadio;
+import me.Andrew.PrisonRadio.gui.ControlGUI;
 import me.piggypiglet.pigapi.objects.CMD;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -11,6 +12,7 @@ public class controlsCommand extends CMD {
 
     public controlsCommand() {
         this.cmd = "controls";
+        this.def = true;
     }
 
     public void execute(CommandSender sender, String[] args) {
@@ -21,8 +23,12 @@ public class controlsCommand extends CMD {
                 p.sendMessage("your not on the link");
                 return;
             }
-            client.sendEvent("requestcontrols","");
+            //client.sendEvent("requestcontrols","");
             p.sendMessage(ChatColor.GOLD+"Requesting Controls");
+
+            //TODO: Remove this test code
+            ControlGUI cgui = new ControlGUI();
+            p.openInventory(cgui.getInv("Test",false));
         }
     }
 }

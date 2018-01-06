@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class ControlGUI {
 
-    public static Inventory getInv(String song,boolean paused){
+    public Inventory getInv(String song,boolean paused){
         PrisonRadio pr = PrisonRadio.getInstance();
         Inventory inv = pr.getServer().createInventory(null,9*3, ChatColor.GREEN+"Controls");
 
@@ -30,7 +30,7 @@ public class ControlGUI {
     }
 
 
-    private static Inventory fillBlanks(Inventory inv){
+    private Inventory fillBlanks(Inventory inv){
 
         for(int i=0; i < (inv.getSize() + 1);i++){
             ItemStack is = inv.getItem(i);
@@ -43,14 +43,14 @@ public class ControlGUI {
         return inv;
     }
 
-    private static ItemStack renameItem(ItemStack is, String name){
+    private ItemStack renameItem(ItemStack is, String name){
         ItemMeta im = is.getItemMeta();
         im.setDisplayName(name);
         is.setItemMeta(im);
        return is;
     }
 
-    private static int getSlot(int row, int col){
+    private int getSlot(int row, int col){
         int slot = 0;
         row = row - 1;
         slot = col * 9;
@@ -58,7 +58,7 @@ public class ControlGUI {
         slot = slot + col;
         return slot;
     }
-    private static ItemStack skull(String player,String name){
+    private ItemStack skull(String player,String name){
         ItemStack is = new ItemStack(Material.SKULL,1, (short) 3);
         SkullMeta sm = (SkullMeta) is.getItemMeta();
         sm.setDisplayName(name);
@@ -66,7 +66,7 @@ public class ControlGUI {
         is.setItemMeta(sm);
         return is;
     }
-    private static ItemStack getPausePlayItem(boolean paused){
+    private ItemStack getPausePlayItem(boolean paused){
         ItemStack is;
 
         if(paused){
