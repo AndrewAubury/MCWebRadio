@@ -38,29 +38,23 @@ public class InvClickEvent implements Listener {
         }else if(e.getClickedInventory().getName().equalsIgnoreCase(ChatColor.GREEN+"Controls")) {
             Player p = (Player) e.getWhoClicked();
             ItemStack clicked = e.getCurrentItem();
-            Selector s = Selector.getInstance();
             e.setCancelled(true);
+            SocketIOClient client = PrisonRadio.getInstance().sb.getClient(p);
 
-            if(clicked.getItemMeta().getDisplayName().equalsIgnoreCase("play")){
-                SocketIOClient client = PrisonRadio.getInstance().sb.getClient(p);
+            if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("play")){
                 client.sendEvent("play","");
                 client.sendEvent("requestcontrols","");
             }
 
-            if(clicked.getItemMeta().getDisplayName().equalsIgnoreCase("play")){
-                SocketIOClient client = PrisonRadio.getInstance().sb.getClient(p);
+            if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("play")){
                 client.sendEvent("stop","");
                 client.sendEvent("requestcontrols","");
             }
 
-            if(clicked.getItemMeta().getDisplayName().equalsIgnoreCase("pause")){
-                SocketIOClient client = PrisonRadio.getInstance().sb.getClient(p);
+            if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("pause")){
                 client.sendEvent("pause","");
                 client.sendEvent("requestcontrols","");
-
             }
-
-
         }else{
             return;
         }
