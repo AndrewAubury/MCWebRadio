@@ -19,7 +19,7 @@ public class ControlGUI {
         PrisonRadio pr = PrisonRadio.getInstance();
         Inventory inv = pr.getServer().createInventory(null,27, ChatColor.GREEN+"Controls");
 
-        if(song != "none"){
+        if(!song.equalsIgnoreCase("none")){
             inv.setItem(getSlot(2,2), getPausePlayItem(paused));
             inv.setItem(getSlot(2,3), renameItem(new ItemStack(Material.BARRIER,1),ChatColor.RED+"Stop"));
 

@@ -4,6 +4,7 @@ import com.corundumstudio.socketio.SocketIOClient;
 import me.Andrew.PrisonRadio.PrisonRadio;
 import me.Andrew.PrisonRadio.gui.Selector;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -48,6 +49,11 @@ public class InvClickEvent implements Listener {
             if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("stop")){
                 client.sendEvent("stop","");
                 p.closeInventory();
+            }
+
+            if(clicked.getType() == Material.RECORD_7){
+                p.closeInventory();
+                Selector.getInstance().openSelector(p);
             }
 
             if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("pause")){
