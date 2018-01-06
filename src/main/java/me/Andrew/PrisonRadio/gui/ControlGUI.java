@@ -33,7 +33,7 @@ public class ControlGUI {
 
     private Inventory fillBlanks(Inventory inv){
 
-        for(int i=0; i < (inv.getSize() + 1);i++){
+        for(int i=0; i < (inv.getSize());i++){
             ItemStack is = inv.getItem(i);
             if(is == null || is.getType() == Material.AIR){
                 ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE,1, (short) 14);
