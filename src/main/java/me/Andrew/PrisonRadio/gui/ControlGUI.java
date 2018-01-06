@@ -37,8 +37,7 @@ public class ControlGUI {
             ItemStack is = inv.getItem(i);
             if(is == null || is.getType() == Material.AIR){
                 ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE,1, (short) 14);
-                glass = renameItem(glass,"");
-
+                glass = renameItem(glass,ChatColor.RED+" ");
                 inv.setItem(i,glass);
             }
         }
