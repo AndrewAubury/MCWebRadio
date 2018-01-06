@@ -2,6 +2,7 @@ package me.Andrew.PrisonRadio.gui;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import me.Andrew.PrisonRadio.PrisonRadio;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -49,21 +50,24 @@ public class ControlGUI {
         is.setItemMeta(im);
        return is;
     }
+    //(2,3)
     private int getSlot(int row, int col){
         int slot = 0;
-        row = row - 1; //1
-        slot = row * 9;
+        row = row - 1;
+        slot = col * 9;
         col = col - 1;
         slot = slot + col;
         return slot;
     }
     private ItemStack skull(String player,String name){
-        ItemStack is = new ItemStack(Material.SKULL,1, (short) 3);
-        SkullMeta sm = (SkullMeta) is.getItemMeta();
-        sm.setDisplayName(name);
-        sm.setOwner(player);
-        is.setItemMeta(sm);
-        return is;
+
+        SkullMeta  meta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+        meta.setOwner("player");
+        meta.setDisplayName(name);
+        ItemStack stack = new ItemStack(Material.SKULL_ITEM,1 , (byte)3);
+        stack.setItemMeta(meta);
+
+        return stack;
     }
     private ItemStack getPausePlayItem(boolean paused){
         ItemStack is;
