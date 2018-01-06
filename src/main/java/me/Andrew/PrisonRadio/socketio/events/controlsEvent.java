@@ -26,13 +26,13 @@ public class controlsEvent implements DataListener<String> {
             PrisonRadio main = PrisonRadio.getInstance();
             //main.getLogger().info(s);
             //main.getLogger().info("Hiiiiii");
-            main.getLogger().info(jsonObject.get("song")+" | "+jsonObject.get("paused"));
+            main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
             Player p = main.getServer().getPlayer(mcuuid);
 
-            main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getBoolean("paused"));
+            main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
             p.sendMessage(ChatColor.GREEN+"Opening Controls GUI");
-            p.openInventory(ControlGUI.getInv(jsonObject.getString("song"),jsonObject.getBoolean("paused")));
+            p.openInventory(ControlGUI.getInv(jsonObject.getString("song"),jsonObject.getString("paused").equalsIgnoreCase("true")));
         }
 }
