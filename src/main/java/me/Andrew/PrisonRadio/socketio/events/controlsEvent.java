@@ -30,6 +30,7 @@ public class controlsEvent implements DataListener<String> {
                 Player p = main.getServer().getPlayer(mcuuid);
                 p.sendMessage(ChatColor.GREEN + "Opening Controls GUI");
                 ControlGUI gui = new ControlGUI();
+                p.closeInventory();
                 p.openInventory(gui.getInv(jsonObject.getString("song"), jsonObject.getString("paused").equalsIgnoreCase("true")));
             }catch(Exception e){
                 e.printStackTrace();

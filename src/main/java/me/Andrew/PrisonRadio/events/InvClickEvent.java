@@ -42,18 +42,16 @@ public class InvClickEvent implements Listener {
             SocketIOClient client = PrisonRadio.getInstance().sb.getClient(p);
 
             if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("play")){
-                client.sendEvent("play","");
-                client.sendEvent("requestcontrols","");
+                client.sendEvent("playret","");
             }
 
-            if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("play")){
+            if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("stop")){
                 client.sendEvent("stop","");
-                client.sendEvent("requestcontrols","");
+                p.closeInventory();
             }
 
             if(ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("pause")){
-                client.sendEvent("pause","");
-                client.sendEvent("requestcontrols","");
+                client.sendEvent("pauseret","");
             }
         }else{
             return;
