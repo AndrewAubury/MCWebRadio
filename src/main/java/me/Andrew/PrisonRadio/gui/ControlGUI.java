@@ -15,16 +15,23 @@ import org.bukkit.inventory.meta.SkullMeta;
 public class ControlGUI {
 
     public Inventory getInv(String song,boolean paused){
+
         PrisonRadio pr = PrisonRadio.getInstance();
         Inventory inv = pr.getServer().createInventory(null,27, ChatColor.GREEN+"Controls");
 
-        inv.setItem(getSlot(2,2), getPausePlayItem(paused));
-        inv.setItem(getSlot(2,3), renameItem(new ItemStack(Material.BARRIER,1),ChatColor.RED+"Stop"));
+        if(song != "none"){
+            inv.setItem(getSlot(2,2), getPausePlayItem(paused));
+            inv.setItem(getSlot(2,3), renameItem(new ItemStack(Material.BARRIER,1),ChatColor.RED+"Stop"));
+
+            inv.setItem(getSlot(2,7), skull("MHF_ArrowDown",ChatColor.GREEN+"Volume Down"));
+            inv.setItem(getSlot(2,8), skull("MHF_ArrowUp",ChatColor.GREEN+"Volume Up"));
+        }else{
+            song = "Please select a song";
+        }
 
         inv.setItem(getSlot(2,5), renameItem(new ItemStack(Material.RECORD_7,1),ChatColor.GREEN+song));
 
-        inv.setItem(getSlot(2,7), skull("MHF_ArrowDown",ChatColor.GREEN+"Volume Down"));
-        inv.setItem(getSlot(2,8), skull("MHF_ArrowUp",ChatColor.GREEN+"Volume Up"));
+
 
         inv = fillBlanks(inv);
         return inv;
@@ -63,7 +70,8 @@ public class ControlGUI {
     private ItemStack skull(String player,String name){
 
         SkullMeta  meta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
-        meta.setOwner("player");
+        meta.setOwner(player);
+        //meta.setOwningPlayer(PrisonRadio.getInstance().getServer().getOfflinePlayer())
         meta.setDisplayName(name);
         ItemStack stack = new ItemStack(Material.SKULL_ITEM,1 , (byte)3);
         stack.setItemMeta(meta);

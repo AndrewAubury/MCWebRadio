@@ -27,9 +27,7 @@ public class controlsEvent implements DataListener<String> {
                 PrisonRadio main = PrisonRadio.getInstance();
                 main.getLogger().info(string);
                 //main.getLogger().info("Hiiiiii");
-                main.getLogger().info(jsonObject.getString("song") + " | " + jsonObject.getString("paused"));
                 Player p = main.getServer().getPlayer(mcuuid);
-                main.getLogger().info(jsonObject.getString("song") + " | " + jsonObject.getString("paused"));
                 p.sendMessage(ChatColor.GREEN + "Opening Controls GUI");
                 ControlGUI gui = new ControlGUI();
                 p.openInventory(gui.getInv(jsonObject.getString("song"), jsonObject.getString("paused").equalsIgnoreCase("true")));

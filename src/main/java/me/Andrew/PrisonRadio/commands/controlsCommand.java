@@ -23,12 +23,8 @@ public class controlsCommand extends CMD {
                 p.sendMessage("your not on the link");
                 return;
             }
-            //client.sendEvent("requestcontrols","");
+            client.sendEvent("requestcontrols","");
             p.sendMessage(ChatColor.GOLD+"Requesting Controls");
-
-            //TODO: Remove this test code
-            ControlGUI cgui = new ControlGUI();
-            p.openInventory(cgui.getInv("Test",false));
         }
     }
 }
