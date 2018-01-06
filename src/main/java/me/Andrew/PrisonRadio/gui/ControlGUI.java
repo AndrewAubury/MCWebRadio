@@ -38,6 +38,8 @@ public class ControlGUI {
             if(is == null || is.getType() == Material.AIR){
                 ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE,1, (short) 14);
                 glass = renameItem(glass,"");
+
+                inv.setItem(i,glass);
             }
         }
 
@@ -76,7 +78,7 @@ public class ControlGUI {
             is = new ItemStack(Material.INK_SACK, 1, (short) DyeColor.GRAY.getDyeData());
             is = renameItem(is, ChatColor.GRAY+"Play");
         }else{
-            is = new ItemStack(Material.INK_SACK, 1, (short) DyeColor.GREEN.getDyeData());
+            is = new ItemStack(Material.INK_SACK, 1, (short) DyeColor.LIME.getDyeData());
             is = renameItem(is, ChatColor.GREEN+"Pause");
         }
          return is;
