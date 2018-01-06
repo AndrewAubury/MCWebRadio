@@ -32,6 +32,7 @@ public class controlsEvent implements DataListener<String> {
             main.getLogger().info(jsonObject.getString("song")+" | "+jsonObject.getString("paused"));
 
             p.sendMessage(ChatColor.GREEN+"Opening Controls GUI");
-            //p.openInventory(ControlGUI.getInv(jsonObject.getString("song"),jsonObject.getString("paused").equalsIgnoreCase("true")));
+            ControlGUI gui = new ControlGUI();
+            p.openInventory(gui.getInv(jsonObject.getString("song"),jsonObject.getString("paused").equalsIgnoreCase("true")));
         }
 }

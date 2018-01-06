@@ -15,7 +15,7 @@ public class ControlGUI {
 
     public Inventory getInv(String song,boolean paused){
         PrisonRadio pr = PrisonRadio.getInstance();
-        Inventory inv = pr.getServer().createInventory(null,9*3, ChatColor.GREEN+"Controls");
+        Inventory inv = pr.getServer().createInventory(null,27, ChatColor.GREEN+"Controls");
 
         inv.setItem(getSlot(2,2), getPausePlayItem(paused));
         inv.setItem(getSlot(2,3), renameItem(new ItemStack(Material.BARRIER,1),ChatColor.RED+"Stop"));
@@ -49,11 +49,10 @@ public class ControlGUI {
         is.setItemMeta(im);
        return is;
     }
-
     private int getSlot(int row, int col){
         int slot = 0;
-        row = row - 1;
-        slot = col * 9;
+        row = row - 1; //1
+        slot = row * 9;
         col = col - 1;
         slot = slot + col;
         return slot;
