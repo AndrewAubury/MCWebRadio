@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.Andrew</groupId>
-    <artifactId>WebRadio</artifactId>
+    <artifactId>MCWebRadio</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
-        <finalName>WebRadio-Bukkit</finalName>
+        <finalName>MCWebRadio-Bukkit</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
