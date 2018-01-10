@@ -51,12 +51,13 @@ public class PrisonRadio extends JavaPlugin {
                 new controlsCommand()
         };
 
-        new Selector();
+
         APIBuilder builder = new APIBuilder(this);
         builder.setCommandClasses(commands);
 
         getCommand("prisonradio").setExecutor(builder.getCommandHandler());
-
+        Selector s = new Selector();
+        s.setInvIfNull();
     }
 
     @Override

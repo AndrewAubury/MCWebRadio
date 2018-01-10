@@ -1,7 +1,8 @@
-name: PrisonRadio
+name: MCWebRadio
 main: me.Andrew.PrisonRadio.PrisonRadio
 version: 1.0
-description: Custom Radio System
+description: RadioSystem Designed for prison
 author: AndrewAubury
+depend: [ActionBarAPI]
 commands:
   prisonradio:

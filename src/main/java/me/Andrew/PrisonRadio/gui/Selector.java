@@ -45,6 +45,11 @@ public class Selector {
         p.openInventory(inv);
     }
 
+    public void setInvIfNull(){
+        if(inv == null){
+            setInv();
+        }
+    }
     private void addLink(String name,String path){
         namePathLink.put(name,path);
     }
@@ -65,7 +70,7 @@ public class Selector {
 
         for (int i = 0; i < arr.length(); i++) {
             JSONObject object = arr.getJSONObject(i);
-            ItemStack is = new ItemStack(Material.RECORD_6);
+            ItemStack is = randomDisk();
             ItemMeta im = is.getItemMeta();
 
             String name = ChatColor.GREEN + object.getString("title");
@@ -81,6 +86,11 @@ public class Selector {
 
             addLink(object.getString("title"),object.getString("path"));
         }
+    }
+    private ItemStack randomDisk(){
+        int randomNum = 3 + (int)(Math.random() * 12);
+        ItemStack is = new ItemStack(Material.valueOf("RECORD_"+randomNum));
+        return is;
     }
     private int getInventorySize(int max) {
         if (max <= 0) return 9;
