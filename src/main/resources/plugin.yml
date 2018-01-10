@@ -5,4 +5,4 @@ description: RadioSystem Designed for prison
 author: AndrewAubury
 depend: [ActionBarAPI]
 commands:
-  prisonradio:
+  webradio:

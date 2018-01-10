@@ -55,7 +55,7 @@ public class PrisonRadio extends JavaPlugin {
         APIBuilder builder = new APIBuilder(this);
         builder.setCommandClasses(commands);
 
-        getCommand("prisonradio").setExecutor(builder.getCommandHandler());
+        getCommand("webradio").setExecutor(builder.getCommandHandler());
         Selector s = new Selector();
         s.setInvIfNull();
     }
