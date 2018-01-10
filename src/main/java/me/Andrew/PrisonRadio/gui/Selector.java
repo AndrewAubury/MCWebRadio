@@ -88,7 +88,7 @@ public class Selector {
         }
     }
     private ItemStack randomDisk(){
-        int randomNum = 3 + (int)(Math.random() * 12);
+        int randomNum = 3 + (int)(Math.random() * 9);
         ItemStack is = new ItemStack(Material.valueOf("RECORD_"+randomNum));
         return is;
     }
