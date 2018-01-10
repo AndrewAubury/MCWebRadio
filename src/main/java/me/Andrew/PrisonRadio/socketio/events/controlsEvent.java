@@ -25,7 +25,7 @@ public class controlsEvent implements DataListener<String> {
                 }
                 JSONObject jsonObject = new JSONObject(string);
                 PrisonRadio main = PrisonRadio.getInstance();
-                main.getLogger().info(string);
+                //main.getLogger().info(string);
                 //main.getLogger().info("Hiiiiii");
                 Player p = main.getServer().getPlayer(mcuuid);
                 if(!jsonObject.getBoolean("hide")){
